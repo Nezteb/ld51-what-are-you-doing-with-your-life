@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4v8lea6cll2e"]
+
+[ext_resource type="Script" path="res://prompt/prompt.gd" id="1_hy1fg"]
+
+[sub_resource type="SystemFont" id="SystemFont_vr3po"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ylk28"]
+font = SubResource("SystemFont_vr3po")
+font_size = 52
+
+[sub_resource type="SystemFont" id="SystemFont_emwn3"]
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_7x71d"]
+subpixel_positioning = 0
+
+[node name="root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="prompt" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 646.0
+script = ExtResource("1_hy1fg")
+
+[node name="Label" type="Label" parent="prompt"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 41.0
+offset_right = 1086.0
+offset_bottom = 132.0
+text = "How many years have you been alive?"
+label_settings = SubResource("LabelSettings_ylk28")
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="prompt"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = 139.0
+offset_right = 985.0
+offset_bottom = 229.0
+theme_override_fonts/font = SubResource("SystemFont_emwn3")
+theme_override_font_sizes/font_size = 52
+placeholder_text = "There are 365 days in a year..."
+context_menu_enabled = false
+drag_and_drop_selection_enabled = false
+wrap_mode = 1
+
+[node name="Button" type="Button" parent="prompt"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 254.0
+offset_right = 1136.0
+offset_bottom = 413.0
+theme_override_fonts/font = SubResource("SystemFont_7x71d")
+theme_override_font_sizes/font_size = 52
+text = "I've been alive for..."
+
+[connection signal="too_old" from="prompt" to="prompt" method="_on_prompt_too_old"]
+[connection signal="text_changed" from="prompt/TextEdit" to="prompt" method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="prompt/Button" to="prompt" method="_on_button_pressed"]

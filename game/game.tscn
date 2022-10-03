@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxfnr60fohtpn"]
+
+[ext_resource type="Script" path="res://game/game.gd" id="1_tdnyd"]
+
+[sub_resource type="SystemFont" id="SystemFont_j63va"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ddsbg"]
+font = SubResource("SystemFont_j63va")
+font_size = 52
+
+[node name="root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="game" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1157.0
+offset_bottom = 653.0
+script = ExtResource("1_tdnyd")
+
+[node name="Label" type="Label" parent="game"]
+offset_left = 132.0
+offset_top = 41.0
+offset_right = 1086.0
+offset_bottom = 132.0
+label_settings = SubResource("LabelSettings_ddsbg")
+horizontal_alignment = 1
