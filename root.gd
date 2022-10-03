@@ -1,3 +1,3 @@
 extends Node
 
-var age = 0
+var age: int = 0

@@ -1,6 +1,6 @@
 extends Control
 
-var age = 0
+var age: int = 0
 signal too_old
 
 func validate_age():
@@ -18,7 +18,7 @@ func validate_age():
 
 func read_age():
 	var textNode = get_node("TextEdit")
-	var text = get_node("TextEdit").get_text()
+	var text = textNode.get_text()
 	
 	if(text != ""):
 		age = text.to_int()

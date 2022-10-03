@@ -1,19 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4v8lea6cll2e"]
+[gd_scene load_steps=10 format=3 uid="uid://c4v8lea6cll2e"]
 
 [ext_resource type="Script" path="res://prompt/prompt.gd" id="1_hy1fg"]
 
-[sub_resource type="SystemFont" id="SystemFont_vr3po"]
+[sub_resource type="SystemFont" id="SystemFont_mva28"]
 subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ylk28"]
-font = SubResource("SystemFont_vr3po")
-font_size = 52
+font = SubResource("SystemFont_mva28")
+font_size = 100
 
 [sub_resource type="SystemFont" id="SystemFont_emwn3"]
 subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_7x71d"]
 subpixel_positioning = 0
+
+[sub_resource type="InputEventKey" id="InputEventKey_2tmme"]
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_0xtrq"]
+events = [SubResource("InputEventKey_2tmme")]
+
+[sub_resource type="SystemFont" id="SystemFont_3lgex"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfly8"]
+font = SubResource("SystemFont_3lgex")
+font_size = 50
 
 [node name="root" type="Control"]
 layout_mode = 3
@@ -24,44 +36,58 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="prompt" type="Control" parent="."]
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 646.0
 script = ExtResource("1_hy1fg")
 
 [node name="Label" type="Label" parent="prompt"]
-layout_mode = 0
-offset_left = 132.0
-offset_top = 41.0
-offset_right = 1086.0
-offset_bottom = 132.0
+offset_left = 52.0
+offset_top = 34.0
+offset_right = 1882.0
+offset_bottom = 174.0
 text = "How many years have you been alive?"
 label_settings = SubResource("LabelSettings_ylk28")
 horizontal_alignment = 1
 
 [node name="TextEdit" type="TextEdit" parent="prompt"]
-layout_mode = 0
-offset_left = 211.0
-offset_top = 139.0
-offset_right = 985.0
-offset_bottom = 229.0
+offset_left = 231.0
+offset_top = 449.0
+offset_right = 1699.0
+offset_bottom = 609.0
 theme_override_fonts/font = SubResource("SystemFont_emwn3")
-theme_override_font_sizes/font_size = 52
+theme_override_font_sizes/font_size = 100
 placeholder_text = "There are 365 days in a year..."
 context_menu_enabled = false
 drag_and_drop_selection_enabled = false
 wrap_mode = 1
 
 [node name="Button" type="Button" parent="prompt"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 254.0
-offset_right = 1136.0
-offset_bottom = 413.0
+offset_left = 201.0
+offset_top = 822.0
+offset_right = 1691.0
+offset_bottom = 981.0
 theme_override_fonts/font = SubResource("SystemFont_7x71d")
-theme_override_font_sizes/font_size = 52
+theme_override_font_sizes/font_size = 100
+shortcut = SubResource("Shortcut_0xtrq")
 text = "I've been alive for..."
+
+[node name="Label2" type="Label" parent="prompt"]
+offset_left = 647.0
+offset_top = 610.0
+offset_right = 1182.0
+offset_bottom = 687.0
+text = "(type number for age)"
+label_settings = SubResource("LabelSettings_vfly8")
+
+[node name="Label3" type="Label" parent="prompt"]
+offset_left = 709.0
+offset_top = 993.0
+offset_right = 1153.0
+offset_bottom = 1070.0
+text = "(then click button)"
+label_settings = SubResource("LabelSettings_vfly8")
 
 [connection signal="too_old" from="prompt" to="prompt" method="_on_prompt_too_old"]
 [connection signal="text_changed" from="prompt/TextEdit" to="prompt" method="_on_text_edit_text_changed"]

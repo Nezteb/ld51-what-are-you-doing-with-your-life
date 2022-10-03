@@ -1,6 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxfnr60fohtpn"]
+[gd_scene load_steps=9 format=3 uid="uid://bxfnr60fohtpn"]
 
 [ext_resource type="Script" path="res://game/game.gd" id="1_tdnyd"]
+
+[sub_resource type="SystemFont" id="SystemFont_o2fql"]
+
+[sub_resource type="SystemFont" id="SystemFont_36vq6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j0b4c"]
+font = SubResource("SystemFont_36vq6")
+font_size = 100
 
 [sub_resource type="SystemFont" id="SystemFont_j63va"]
 subpixel_positioning = 0
@@ -8,6 +16,12 @@ subpixel_positioning = 0
 [sub_resource type="LabelSettings" id="LabelSettings_ddsbg"]
 font = SubResource("SystemFont_j63va")
 font_size = 52
+
+[sub_resource type="SystemFont" id="SystemFont_06ef0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hyexm"]
+font = SubResource("SystemFont_06ef0")
+font_size = 50
 
 [node name="root" type="Control"]
 layout_mode = 3
@@ -18,16 +32,187 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="game" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 0
-offset_right = 1157.0
-offset_bottom = 653.0
+offset_right = 1423.0
+offset_bottom = 915.0
 script = ExtResource("1_tdnyd")
 
-[node name="Label" type="Label" parent="game"]
-offset_left = 132.0
-offset_top = 41.0
-offset_right = 1086.0
-offset_bottom = 132.0
+[node name="Button" type="Button" parent="game"]
+visible = false
+layout_mode = 0
+offset_left = 587.0
+offset_top = 30.0
+offset_right = 1441.0
+offset_bottom = 176.0
+theme_override_fonts/font = SubResource("SystemFont_o2fql")
+theme_override_font_sizes/font_size = 50
+text = "Try to use your internal clock to
+click this button every ten seconds"
+
+[node name="Label6" type="Label" parent="game"]
+visible = false
+layout_mode = 1
+offset_left = 682.0
+offset_top = 156.0
+offset_right = 1327.0
+offset_bottom = 296.0
+text = "Expectations:"
+label_settings = SubResource("LabelSettings_j0b4c")
+horizontal_alignment = 1
+
+[node name="Expectations" type="Panel" parent="game"]
+visible = false
+layout_mode = 1
+offset_left = 44.0
+offset_top = 517.0
+offset_right = 1895.0
+offset_bottom = 1063.0
+
+[node name="Label4" type="Label" parent="game/Expectations"]
+layout_mode = 1
+offset_left = 768.0
+offset_top = 12.0
+offset_right = 1124.0
+offset_bottom = 152.0
+text = "Reality:"
+label_settings = SubResource("LabelSettings_j0b4c")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="game/Expectations"]
+layout_mode = 1
+offset_left = 175.0
+offset_top = 170.0
+offset_right = 1053.0
+offset_bottom = 261.0
+text = "Your age in 10-second increments: "
 label_settings = SubResource("LabelSettings_ddsbg")
 horizontal_alignment = 1
+
+[node name="AgeLabel" type="Label" parent="game/Expectations"]
+layout_mode = 1
+offset_left = 1067.0
+offset_top = 169.0
+offset_right = 1431.0
+offset_bottom = 260.0
+label_settings = SubResource("LabelSettings_ddsbg")
+
+[node name="Label2" type="Label" parent="game/Expectations"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 294.0
+offset_right = 1033.0
+offset_bottom = 381.0
+text = "10-second increments playing this game:"
+label_settings = SubResource("LabelSettings_ddsbg")
+horizontal_alignment = 1
+
+[node name="GameTime" type="Label" parent="game/Expectations"]
+layout_mode = 1
+offset_left = 1054.0
+offset_top = 298.0
+offset_right = 1418.0
+offset_bottom = 389.0
+text = "0"
+label_settings = SubResource("LabelSettings_ddsbg")
+
+[node name="Label3" type="Label" parent="game/Expectations"]
+layout_mode = 1
+offset_left = 255.0
+offset_top = 417.0
+offset_right = 1034.0
+offset_bottom = 504.0
+text = "Percentage of your life playing:"
+label_settings = SubResource("LabelSettings_ddsbg")
+horizontal_alignment = 1
+
+[node name="PercentageTime" type="Label" parent="game/Expectations"]
+layout_mode = 1
+offset_left = 1057.0
+offset_top = 413.0
+offset_right = 1815.0
+offset_bottom = 504.0
+text = "0%"
+label_settings = SubResource("LabelSettings_ddsbg")
+
+[node name="Reality" type="Panel" parent="game"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 243.0
+offset_right = 1893.0
+offset_bottom = 789.0
+
+[node name="Label4" type="Label" parent="game/Reality"]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 16.0
+offset_right = 1702.0
+offset_bottom = 156.0
+text = "How fast does 10 seconds go?"
+label_settings = SubResource("LabelSettings_j0b4c")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="game/Reality"]
+layout_mode = 1
+offset_left = 175.0
+offset_top = 170.0
+offset_right = 1053.0
+offset_bottom = 261.0
+text = "Your age in 10-second increments: "
+label_settings = SubResource("LabelSettings_ddsbg")
+horizontal_alignment = 1
+
+[node name="AgeLabel" type="Label" parent="game/Reality"]
+layout_mode = 1
+offset_left = 1067.0
+offset_top = 169.0
+offset_right = 1431.0
+offset_bottom = 260.0
+label_settings = SubResource("LabelSettings_ddsbg")
+
+[node name="Label2" type="Label" parent="game/Reality"]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 294.0
+offset_right = 1033.0
+offset_bottom = 381.0
+text = "10-second increments playing this game:"
+label_settings = SubResource("LabelSettings_ddsbg")
+horizontal_alignment = 1
+
+[node name="GameTime" type="Label" parent="game/Reality"]
+layout_mode = 1
+offset_left = 1054.0
+offset_top = 298.0
+offset_right = 1418.0
+offset_bottom = 389.0
+text = "0"
+label_settings = SubResource("LabelSettings_ddsbg")
+
+[node name="Label3" type="Label" parent="game/Reality"]
+layout_mode = 1
+offset_left = 255.0
+offset_top = 417.0
+offset_right = 1034.0
+offset_bottom = 504.0
+text = "Percentage of your life playing:"
+label_settings = SubResource("LabelSettings_ddsbg")
+horizontal_alignment = 1
+
+[node name="PercentageTime" type="Label" parent="game/Reality"]
+layout_mode = 1
+offset_left = 1057.0
+offset_top = 413.0
+offset_right = 1815.0
+offset_bottom = 504.0
+text = "0%"
+label_settings = SubResource("LabelSettings_ddsbg")
+
+[node name="Label" type="Label" parent="game"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 972.0
+offset_right = 1846.0
+offset_bottom = 1044.0
+text = "(this is as far as I got in less than a day; thank you for \"playing\" my \"game\")"
+label_settings = SubResource("LabelSettings_hyexm")
